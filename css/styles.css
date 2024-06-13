@@ -1,19 +1,25 @@
-*{
+/* Global resets and box-sizing */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Basic styling for header and logo */
 header nav {
     padding: 0px;
 }
+
 .logo {
     width: 150px;
     height: 110px;
     margin-left: 95px;
 }
+
+/* Font import */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+/* Container styling */
 .container {
     display: flex;
     justify-content: center;
@@ -21,17 +27,88 @@ header nav {
     min-height: 50vh;
 }
 
-
+/* Image styling */
 img {
     width: 85vw;
     height: 60vh;
     object-fit: cover;
     z-index: 1000;
-    
 }
 
+/* Carousel styling */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%; /* Adjusted to account for three images */
+    height: 100%;
+    z-index: 1000;
+}
 
+.carousel img {
+    width: 85vw;
+    height: 60vh;
+    object-fit: cover;
+    flex-shrink: 0;
+    z-index: 1000;
+}
 
+/* Button styling */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Menu toggle styling */
+.menuToggle {
+    position: absolute;
+    top: 30px;
+    right: 195px;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuToggle::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: #000;
+    transform: translateY(-9px);
+    transition: 0.5s;
+    box-shadow: 0 9px 0 #000;
+}
+
+.menuToggle::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: #000;
+    transform: translateY(9px);
+    transition: 0.5s;
+}
+
+/* Rectangle styling */
 .rectangle {
     width: 450px;
     height: 80px;
@@ -41,18 +118,18 @@ img {
     top: 320px;
     left: 0;
     z-index: 1000;
-    /* font-size: 26px; */
 }
-.rec{
+
+.rec {
     width: 324px;
     height: 80px;
     background-color: #000;
-      position: absolute;
+    position: absolute;
     top: 320px;
-    right: 0; 
-    
+    right: 0;
 }
 
+/* Text styling */
 .text {
     color: #fff;
     font-size: 24px;
@@ -62,11 +139,13 @@ img {
     font-weight: 400;
 }
 
-section{
+/* Content padding */
+.content {
     padding: 0 130px;
     margin-bottom: 90px;
 }
 
+/* Container grid */
 .container-grid {
     padding-top: 50px;
     max-width: 1500px;
@@ -76,9 +155,10 @@ section{
     flex-wrap: wrap;
 }
 
+/* Text2 styling */
 .text2 {
     width: 60%; /* Adjust this value as needed */
-    font-size:18px;
+    font-size: 18px;
     font-weight: 300;
     color: #061c2c;
     float: left;
@@ -87,8 +167,8 @@ section{
     overflow-wrap: break-word; /* Another property to ensure proper word wrapping */
 }
 
-
-svg{
+/* SVG styling */
+svg {
     float: right;
     width: 416px;
     height: 42px;
@@ -96,8 +176,204 @@ svg{
     background-position: center;
     background-repeat: no-repeat;
     margin-right: 20px;
-    /* margin-top: 34px; */
 }
 
+/* Features section */
+.features {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background: #f9f9f9;
+}
 
+.feature {
+    text-align: left;
+    background: #061c2c;
+    color: #fff;
+    margin: 10px;
+    flex: 1;
+    position: relative;
+}
 
+.feature p {
+    padding: 0px 30px 0px 30px;
+    font-size: 4rem;
+    color: #1f7bae;
+}
+
+.feature h4 {
+    padding: 0px 30px 30px 30px;
+    font-size: 26px;
+    margin: 0;
+}
+
+/* Tags section */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background: #fff;
+}
+
+.tag-wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.tag-link {
+    display: block;
+    flex: 1;
+    background: #244ac2;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.tag-link:after {
+    content: ">";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #29a4e6;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .container-grid {
+        padding: 0 20px;
+    }
+
+    .content {
+        padding: 0 60px;
+    }
+
+    .feature p {
+        font-size: 3rem;
+    }
+
+    .feature h4 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container-grid {
+        padding: 0 15px;
+    }
+
+    .content {
+        padding: 0 30px;
+    }
+
+    .feature p {
+        font-size: 2.5rem;
+    }
+
+    .feature h4 {
+        font-size: 20px;
+    }
+
+    .text2 {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-grid {
+        padding: 0 10px;
+    }
+
+    .content {
+        padding: 0 20px;
+    }
+
+    .feature p {
+        font-size: 2rem;
+    }
+
+    .feature h4 {
+        font-size: 18px;
+    }
+
+    .text2 {
+        font-size: 14px;
+    }
+
+    .rectangle, .rec {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        top: auto;
+        left: 0;
+        right: 0;
+    }
+
+    .rectangle .text, .rec .text {
+        font-size: 20px;
+    }
+
+    .menuToggle {
+        top: 10px;
+        right: 10px;
+    }
+
+    .menuToggle::before, .menuToggle::after {
+        background: #000;
+    }
+
+    .tag-wrapper {
+        flex-direction: column;
+    }
+
+    .tag-link {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-grid {
+        padding: 0 5px;
+    }
+
+    .content {
+        padding: 0 10px;
+    }
+
+    .feature p {
+        font-size: 1.5rem;
+    }
+
+    .feature h4 {
+        font-size: 16px;
+    }
+
+    .text2 {
+        font-size: 12px;
+    }
+
+    .rectangle .text, .rec .text {
+        font-size: 16px;
+    }
+
+    .tag-link {
+        font-size: 10px;
+    }
+
+    button {
+        padding: 5px;
+    }
+}
